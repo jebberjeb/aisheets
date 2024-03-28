@@ -14,7 +14,7 @@ This is an experiment to prompt an LLM to provide suggestions on how to improve 
 Download (and store at project root) a `credentials.json` file from your Google Cloud Project which has Google Sheets
 API enabled.
 
-## Specify a DM
+### Specify a DM
 
 Modify `aisheets.py` to specify the sheet ID & your DM's range.
 
