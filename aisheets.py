@@ -77,7 +77,7 @@ def main():
                 feedback1 = askAI(instructions1.read(), dm_assist_prompt).content
                 spit("dm-feedback1.md", feedback1)
 
-        ## Step 2 - incorporate review summary into instructions ##
+        ## Step 2 - incorporate review transcript into instructions ##
         elif step == "2":
             with open("dm-feedback1-review-transcript.md", "r") as review, \
                  open("improve-prompt-instructions.txt") as improve_instructions_prompt:
