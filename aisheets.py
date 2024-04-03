@@ -1,4 +1,5 @@
 import os.path
+import sys
 
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -36,6 +37,7 @@ def askAI(instructions, prompt):
     return completion.choices[0].message
 
 def main():
+    step = sys.argv[1]
 
     # If the refresh & auth tokens don't exist, authenticate and write them.
     creds = None
@@ -69,25 +71,29 @@ def main():
         Below is a decision matrix related to a system called PromETL. What can I do to improve this decision matrix, so
         that I can find the best solution to my problem? Format your response as markdown. --- """ + toCSV(sheet_data)
 
-        with open("instructions1.md", "r") as instructions1, \
-             open("dm-feedback1-review-transcript.md", "r") as review, \
-             open("improve-prompt-instructions.txt") as improve_instructions_prompt:
+        ## Step 1 - get DM feedback ##
+        if step == "1":
+            with open("instructions1.md", "r") as instructions1:
+                feedback1 = askAI(instructions1.read(), dm_assist_prompt).content
+                spit("dm-feedback1.md", feedback1)
 
-            ## Step 1 - get DM feedback ##
-            feedback1 = askAI(instructions1.read(), dm_assist_prompt).content
-            spit("dm-feedback1.md", feedback1)
+        ## Step 2 - incorporate review summary into instructions ##
+        elif step == "2":
+            with open("dm-feedback1-review-transcript.md", "r") as review, \
+                 open("improve-prompt-instructions.txt") as improve_instructions_prompt:
 
-            ## Step 2 - incorporate review summary into instructions ##
-            instructions_content = instructions1.read()
-            review_content = review.read()
-            instructions2 = askAI("", improve_instructions_prompt.read()  +
-                                      instructions_content + "Review Feedback\n---\n---\n" +
-                                      review_content).content
-            spit("instructions2.md", instructions2)
+                instructions_content = instructions1.read()
+                review_content = review.read()
+                instructions2 = askAI("", improve_instructions_prompt.read()  +
+                                          instructions_content + "Review Feedback\n---\n---\n" +
+                                          review_content).content
+                spit("instructions2.md", instructions2)
 
-            ## Step 3 - get new DM feedback ##
-            feedback2 = askAI(instructions2, dm_assist_prompt).content
-            spit("dm-feedback2.md", feedback2)
+        ## Step 3 - get new DM feedback ##
+        elif step == "3":
+            with open("instructions2.md", "r") as instructions2:
+                feedback2 = askAI(instructions2.read(), dm_assist_prompt).content
+                spit("dm-feedback2.md", feedback2)
 
     except HttpError as err:
         print(err)
