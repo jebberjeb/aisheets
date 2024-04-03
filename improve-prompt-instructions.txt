@@ -1,0 +1,12 @@
+Below are instructions used (by an OpenAI assistant) to provide feedback criteria of Decision Matrices. Also included is
+a transcript of a Google Meet where Jeb & Billy review of suggestions (produced by the OpenAI assistant, using the
+instructions) for ways in which the criteria of Billy's Decision Matrix can be improved.
+
+Create new instructions by incorporating the discussion's feedback into the original instructions. Don't highlight the
+changes made to the instructions, simply generate new instructions which can be used by an OpenAI assistant to provide
+the most useful suggestions for improving a Decision Matrix's criteria. Try not to deviate from the format used by the
+original instructions.
+
+Original Instructions
+---------------------
+
