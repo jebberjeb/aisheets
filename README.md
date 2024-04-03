@@ -38,6 +38,11 @@ RANGE_NAME = "..."
 
 ## Run
 
+Use a number 1-3 to indicate the step to execute.
+1. Generate suggestions from the original prompt
+2. Generate an optimized prompt, using the user's review of the suggestions
+3. Generate suggestions from the optimized prompt
+
 ```
-python3 aisheets.py
+python3 aisheets.py <1|2|3>
 ```
