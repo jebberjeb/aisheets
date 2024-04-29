@@ -20,9 +20,6 @@ Most of the content here should be attributed directly to Rich & Stu.
         * [Solution Encoding](#solution-encoding)
         * [Ambiguity](#ambiguity)
         * [Objective / Obstacle Format](#objective-/-obstacle-format)
-    * [Prompts (Problems)](#prompts-(problems))
-        * [RFC->Symptoms](#rfc->symptoms)
-        * [Problem->BetterProblem](#problem->betterproblem)
 * [Use Cases](#use-cases)
 * [Decision Matrices](#decision-matrices)
     * [Criteria](#criteria)
@@ -35,8 +32,6 @@ Most of the content here should be attributed directly to Rich & Stu.
             * [Add Succinctness](#add-succinctness)
             * [Simplify](#simplify)
         * [Starting Criteria](#starting-criteria)
-    * [Prompts](#prompts)
-        * [RFC->Criteria](#rfc->criteria)
 * [Why Do This?](#why-do-this?)
 * [What Does Progress Feel Like?](#what-does-progress-feel-like?)
 * [What if I get stuck?](#what-if-i-get-stuck?)
@@ -162,7 +157,9 @@ problem.
 
 #### Ambiguity
 
-Try to make problem statements as precise as possible. Avoid terms that convey emotion, or lack precision. For example “Users don’t like how slow the app is” could be improved to describe exactly what interactions within the app are causing user dissatisfaction and why. Be as specific as possible, while retaining succinctness. 
+Try to make problem statements as precise as possible. Avoid terms that convey emotion, or lack precision. For example
+“Users don’t like how slow the app is” could be improved to describe exactly what interactions within the app are
+causing user dissatisfaction and why. Be as specific as possible, while retaining succinctness. 
 
 #### Objective / Obstacle Format
 
@@ -173,58 +170,17 @@ high latency in the Foo service”, can be restated in Objective / Obstacle form
 * Objective: Display payment information within 100 msec (p99)
 * Obstacle: p99 latency of the Foo service > 500 msec
 
-### Prompts (Problems)
-
-#### RFC->Symptoms
-You’re an analyst, skilled at thinking critically about problems. Your ability to help others remove bias, and organize
-key information is largely informed by the “How To Describe Problems” section of the attached guide, “Practical Analysis
-and Design”.
-
-RFC documents are typically created to recommend a change to a system, in narrative format. Usually, RFCs are primarily
-focused on describing the changes they propose, in some detail. They also usually (at least briefly) present a rationale
-for that change, for example, user pain, cost-savings, etc. Occasionally, they contain a comparison with alternative
-(rejected) solutions.
-
-Using your problem description abilities, consider the attached RFC document, and do the following:
-
-* list its facts & symptoms which are used in attempting to describe the RFC's problem(s)
-* do not try to diagnose the problem, or draw any conclusions
-* for each symptom, describe any weaknesses, biases, and suggest improvements
-
----
-{{practical-analysis-and-design}}
-
----
-{{rfc}}
-
-#### Problem->BetterProblem
-You’re an analyst, skilled at thinking critically about problems. Your ability to help others craft impactful problem
-statements is largely informed by the “How to Refine Problem Statements” section of the attached guide, "Practical
-Analysis and Design".
-
-Consider the draft problem statement: “The etag cache used by Nubank's homepage (Moon) when calling content providers
-has a low hit rate of around 40-45%, leading to inefficient use of resources and potentially impacting the performance
-and scalability of the system. This low hit rate prevents Nubank from using the cache to estimate customer eligibility
-for widgets and implement better graceful degradation mechanisms for the homepage.”
-
-Give the following guidance:
-
-* point out any weak aspects of the original problem statement
-* rewrite the problem statement using Objective / Obstacle format
-* suggest ways in which further thinking might help reach an even more insightful problem statement
-
----
-{{practical-analysis-and-design
-
 ## Use Cases
 * Use case is similar to a symptom report, but informed by an understanding of the problem. Example:
   * Symptom: I have a headache
   * Use case: The user is trying to read w/ the wrong glasses
 * Use cases are “instances” of a problem.
-* Having multiple use cases / problem instances to work from helps you build a good general tool (vs just saying I want to make something that's extensible). 
+* Having multiple use cases / problem instances to work from helps you build a good general tool (vs just saying I want
+  to make something that's extensible). 
 
 ## Decision Matrices
-Decision Matrices are a structured thinking technique used to evaluate tradeoffs between solutions (to a problem) across a set of criteria, used to select the best solution.
+Decision Matrices are a structured thinking technique used to evaluate tradeoffs between solutions (to a problem) across
+a set of criteria, used to select the best solution.
 
 ### Criteria
 Criteria are used to select (judge) the best of the considered solutions to a problem, primarily by helping to highlight
@@ -286,29 +242,6 @@ few examples that are usually worth at least considering:
 - Alignment with organizational goals / strategy
 - User experience
 
-### Prompts
-
-#### RFC->Criteria
-You are an analyst, focused on diagnosing problems, using structured, critical thinking techniques Decision Matrices
-(DMs). Your thinking is largely informed by the “Decision Matrices” section of the attached "Practical Analysis and
-Design" guide.
-
-RFC documents are typically created to recommend a change to a system, in narrative format. Usually, RFCs are primarily
-focused on describing the changes they propose, in some detail. They also usually (at least briefly) present a rationale
-for that change, for example, user pain, cost-savings, etc. Occasionally, they contain a comparison with alternative
-(rejected) solutions.
-
-Examine the RFC Documentation to extract a (starting) set of criteria to be used during Decision Matrix creation. Do not
-try to diagnose the problem, or draw any conclusions.
-
-For each criteria, describe any weaknesses, biases, and suggest improvements.
-
----
-{{practical-analysis-and-design}}
-
----
-{{rfc}}
-
 ## Why Do This?
 * Solving problems categorically delivers value multiple times over. Solving the same problem repeatedly is expensive.
 * Solving problems is cheaper the further to the left you are in analysis < design < impl < test < deploy.
@@ -337,13 +270,18 @@ else, go to sleep.
 ## Why Does This Feel Hard?
 * You’ve got a deep bias towards action.
 * You’ve been conditioned (by the software engineering profession & culture) to value making things, writing code, etc.
-* We’ve grown up in a culture of just trying stuff out, not having to think. This practice encourages you to think, to rediscover old things, be intentional -Christian
+* We’ve grown up in a culture of just trying stuff out, not having to think. This practice encourages you to think, to
+  rediscover old things, be intentional -Christian
 * Being poked is unfamiliar to you.
-* The first 1000 golf balls you hit don’t make you feel good. But once you hit one in the air, it feels great & keeps you coming back for more!
+* The first 1000 golf balls you hit don’t make you feel good. But once you hit one in the air, it feels great & keeps
+  you coming back for more!
 * Keep going, discomfort is a signal of growth. Embrace it.
 
 ## How do I improve?
-* Sometimes the dynamics associated w/ doing this as a team are hard and take time to do well. Doing it on your own is a good way to practice.
+* Sometimes the dynamics associated w/ doing this as a team are hard and take time to do well. Doing it on your own is a
+  good way to practice.
 
 ## Tools
-* Tools should help you stay connected to the problem / objective. A tool that takes you away from the idea space will fool you into thinking you need more details than you do. (Dan re: Rich)
+* Tools should help you stay connected to the problem / objective. A tool that takes you away from the idea space will
+  fool you into thinking you need more details than you do. (Dan re: Rich) What do I find myself wanting to do when
+  someone sends me an RFC
